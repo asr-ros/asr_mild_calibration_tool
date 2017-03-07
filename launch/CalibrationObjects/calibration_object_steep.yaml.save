@@ -1,0 +1,21 @@
+angle_ab: 0.46469
+angle_bc: 0.46469
+angle_ca: 0.6435
+side_a: 1.2786
+side_b: 1.143
+side_c: 1.2786
+
+
+marker_left_rotation_z: 90
+0marker_left_transformation_z: 0.05
+marker_left_transformation_x: -0.15
+marker_left_rotation_x: 90
+
+marker_right_rotation_z: 180
+marker_right_transformation_z: 0.05
+marker_right_transformation_x: 0.05
+marker_right_rotation_x: 90
+
+marker_edge_size: 0.08
+marker_ID_left: 9
+marker_ID_right: 10

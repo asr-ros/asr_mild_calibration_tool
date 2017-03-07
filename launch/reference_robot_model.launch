@@ -1,0 +1,6 @@
+<launch>
+<param name="robot_description" textfile="$(find asr_mild_kinematic_chain)/robot_description/mild_new.urdf" /> 
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+   <param name="publish_frequency" value="150"/>
+</node>
+</launch>

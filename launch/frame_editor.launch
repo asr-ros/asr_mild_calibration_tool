@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="calibration_transform_object" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /calibration_center 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="calibration_transform_scan" output="screen" args="0.0 0.0 0.0 1.57079632679 0.0 0.0 /calibration_center /base_laser 100"/>
+	<node pkg="asr_mild_calibration_tool" type="frame_editor" name="frame_editor" output="screen">
+	  <rosparam file="$(find asr_mild_calibration_tool)/launch/calibration_tool_settings.yaml"/>
+	</node>
+	
+</launch>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <name>asr_mild_calibration_tool</name>
+  <version>1.0.0</version>
+  <description>A tool to calibrate the relative frames between the mild's laserscanner and the cameras</description>
+  <author>Aumann Florian, Heller Florian, Meißner Pascal</author>
+  <maintainer email="pascal.meissner@posteo.de">Meißner Pascal</maintainer>
+  <license>BSD</license>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>asr_msgs</build_depend>
+  <build_depend>asr_flir_ptu_controller</build_depend>
+  <build_depend>asr_sick_lms_400</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>asr_aruco_marker_recognition</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>roslib</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>asr_msgs</run_depend>
+  <run_depend>asr_flir_ptu_controller</run_depend>
+  <run_depend>asr_sick_lms_400</run_depend>
+  <run_depend>cmake_modules</run_depend>
+  <run_depend>asr_aruco_marker_recognition</run_depend>
+  
+
+  <export>
+  </export>
+</package>

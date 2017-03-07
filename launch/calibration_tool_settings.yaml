@@ -1,0 +1,27 @@
+laserscanner_maxVariance: 0.150
+laserscanner_maxAngleDeviation: 0.18
+feasibilityChecker_maxAngleDeviation: 0.0001
+
+laserscanner_variationStep: 0.006
+laserscanner_variationStepCount: 4
+laserscanner_segmentation_lambda: 0.05
+#Types: LMS400, PLS101
+laserscanner_type: PLS101                      
+
+tilt_min_angle: -15
+tilt_max_angle: 0
+pan_min_angle: -17
+pan_max_angle: 17
+tilt_step_count: 8
+pan_step_count: 6
+
+marker_recognizer_timeout: 10.0
+marker_recognizer_early_abort_timeout: 1.0
+marker_min_distance: 1.0
+marker_max_distance: 2.0
+
+useAveragedMarkerData: true
+
+tf_visualizer_camera_input_topic: x
+tf_visualizer_camera_output_topic: x
+tf_visualizer_frames: x

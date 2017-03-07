@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="asr_mild_calibration_tool" type="calibrationTool_tests" name="calibrationTool_tests" output="screen">
+	  <param name="test_workspace" value="$(find asr_mild_calibration_tool)/test/"/>
+	</node>
+	
+</launch>

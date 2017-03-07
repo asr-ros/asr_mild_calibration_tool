@@ -1,0 +1,15 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="calibration_transform_object" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /calibration_center 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="calibration_transform_scan" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 /calibration_center /base_laser 100"/>
+
+	<param name="robot_description" textfile="$(find asr_mild_calibration_tool)/doc/calibration_object.urdf" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	
+	<env name="ROSCONSOLE_CONFIG_FILE" value="$(find asr_mild_calibration_tool)/log/rosconsole.config" />
+	<node pkg="asr_mild_calibration_tool" type="calibrationTool" name="calibrationTool" output="screen">
+	  <rosparam file="$(find asr_mild_calibration_tool)/launch/calibration_tool_settings.yaml"/>
+	  <rosparam file="$(find asr_mild_calibration_tool)/launch/CalibrationObjects/calibration_object_steep.yaml"/>
+	</node>
+	
+	    
+</launch>

@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<robot name="calibration_object">
+    <link name="calibration_center"/>
+    <link name="object_base"/>
+    <link name="object_scan_frame"/>
+    <link name="object_top"/>
+    <link name="marker_left"/>
+    <link name="marker_right"/> 
+    <link name="camera_frame"/> 
+    
+    <link name="mild_base"/>
+    <link name="camera_left_frame"/>
+    <link name="camera_right_frame"/>
+    <link name="ptu_base_link"/> 
+    <link name="ptu_pan_link"/> 
+    <link name="ptu_tilted_link" />
+    <link name="ptu_mount_link" />
+    <link name="ptu_tilt_link"/>
+    
+    <link name="camera_left_frame_old"/>
+    <link name="camera_right_frame_old"/>
+    <link name="ptu_base_link_old"/> 
+    <link name="ptu_tilted_link_old" />
+    <link name="ptu_mount_link_old" />
+    <link name="ptu_tilt_link_old"/>
+    <link name="ptu_pan_link_old"/>
+    
+    <joint name="calibration_center_to_object_top" type="fixed">
+	    <parent link="calibration_center"/>
+	    <child link="object_top"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+    
+    <joint name="top_to_scan_frame" type="fixed">
+	    <parent link="object_top"/>
+	    <child link="object_scan_frame"/>
+
+	    <origin xyz="0 0 0"/>
+    </joint>
+    
+    <joint name="top_to_base" type="fixed">
+	    <parent link="object_top"/>
+	    <child link="object_base"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+    
+    <joint name="top_to_marker_left" type="fixed">
+	    <parent link="object_top"/>
+	    <child link="marker_left"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+    
+    <joint name="top_to_marker_right" type="fixed">
+	    <parent link="object_top"/>
+	    <child link="marker_right"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+    
+    <joint name="marker_right_to_camera" type="fixed">
+	    <parent link="marker_right"/>
+	    <child link="camera_frame"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+
+    <joint name="marker_left_to_camera" type="fixed">
+	    <parent link="marker_left"/>
+	    <child link="camera_frame"/>
+	    <origin xyz="0 0 0"/>
+    </joint>
+       
+   
+    <joint name="laser_to_base" type="fixed">
+        <parent link="calibration_center"/>
+        <child link="mild_base"/>
+        <origin xyz="-.27 0 -.22"/>
+    </joint>
+    
+    <joint name="base_to_ptu" type="fixed">
+        <parent link="mild_base"/>
+        <child link="ptu_base_link"/>
+        <origin xyz="0.0 -0.03 1.47"/>
+      </joint>
+
+    <joint name="ptu_base" type="fixed">
+	<parent link="ptu_base_link"/>
+	<child link="ptu_pan_link"/>
+	<origin xyz="0 -0.011 0.022"/>
+      </joint>
+
+      <!-- The pan joint - rotates around y -->
+      <joint name="ptu_pan" type="revolute">
+	<parent link="ptu_pan_link" />
+	<origin xyz="0 0 0.066" rpy="-1.5708 0 0" />
+	<child link="ptu_tilt_link" />
+	<axis xyz="0 1 0" rpy="0 0 0" />
+	<limit lower="-45" upper="45"
+	      effort="30" velocity="1900"/>
+      </joint>
+
+      <!-- The tilt joint - rotates around y -->
+      <joint name="ptu_tilt" type="revolute">
+	<parent link="ptu_tilt_link" />
+	<origin xyz="0 0 0" rpy="-1.5708 0 0" />
+	<child link="ptu_tilted_link" />
+	<axis xyz="0 1 0" />
+	<limit lower="-46.647514" upper="31.012625"
+	      effort="30" velocity="1900"/>
+      </joint>
+
+      <!-- Fixed joint to provide a convenient attachment point for accessories. -->
+      <joint name="ptu_mount" type="fixed">
+	<parent link="ptu_tilted_link"/>
+	<child link="ptu_mount_link"/>
+	<origin xyz="0 0 -0.03912" rpy="0 0 0" />
+      </joint>
+
+      <!-- Translates between z-Axes convention (z-Axes along optical axis for camera) -->
+      <!-- Defines camera offset to ptu base  -->
+      <joint name="mount_to_camera_right" type="fixed">
+	  <parent link="ptu_mount_link"/>
+	  <child link="camera_right_frame"/>
+	  <origin xyz="0 0.08 0.04" rpy="-1.570796327 0 -1.570796327"/>
+      </joint>
+      <joint name="mount_to_camera_left" type="fixed">
+	  <parent link="ptu_mount_link"/>
+	  <child link="camera_left_frame"/>
+	  <origin xyz="0 -0.073 0.04" rpy="-1.570796327 0 -1.570796327"/>
+      </joint>
+    
+
+
+  <!-- ######################################################################################################################### -->
+	
+    <joint name="base_to_ptu_old" type="fixed">
+        <parent link="mild_base"/>
+        <child link="ptu_base_link_old"/>
+        <origin xyz="0 0 1.35"/>
+      </joint>
+      
+  <joint name="ptu_base_old" type="fixed">
+      <parent link="ptu_base_link_old"/>
+      <child link="ptu_pan_link_old"/>
+      <origin xyz="0 -0.011 0.022"/>
+    </joint>
+
+    <!-- The pan joint - rotates around y -->
+    <joint name="ptu_pan_old" type="revolute">
+      <parent link="ptu_pan_link_old" />
+      <origin xyz="0 0 0.066" rpy="-1.5708 0 0" />
+      <child link="ptu_tilt_link_old" />
+      <axis xyz="0 1 0" rpy="0 0 0" />
+      <limit lower="-45" upper="45"
+             effort="30" velocity="1900"/>
+    </joint>
+
+    <!-- The tilt joint - rotates around y -->
+    <joint name="ptu_tilt_old" type="revolute">
+      <parent link="ptu_tilt_link_old" />
+      <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+      <child link="ptu_tilted_link_old" />
+      <axis xyz="0 1 0" />
+      <limit lower="-46.647514" upper="31.012625"
+             effort="30" velocity="1900"/>
+    </joint>
+
+    <!-- Fixed joint to provide a convenient attachment point for accessories. -->
+    <joint name="ptu_mount_old" type="fixed">
+      <parent link="ptu_tilted_link_old"/>
+      <child link="ptu_mount_link_old"/>
+      <origin xyz="0 0 -0.03912" rpy="0 0 0" />
+    </joint>
+
+    <!-- Translates between z-Axes convention (z-Axes along optical axis for camera) -->
+    <!-- Defines camera offset to ptu base  -->
+    <joint name="mount_to_camera_right_old" type="fixed">
+        <parent link="ptu_mount_link_old"/>
+        <child link="camera_right_frame_old"/>
+        <origin xyz="0 0.086 0.04" rpy="-1.570796327 0 -1.570796327"/>
+    </joint>
+    <joint name="mount_to_camera_left_old" type="fixed">
+        <parent link="ptu_mount_link_old"/>
+        <child link="camera_left_frame_old"/>
+	<origin xyz="0 -0.067 0.04" rpy="-1.570796327 0 -1.570796327"/>
+    </joint>
+  
+      
+  
+</robot>

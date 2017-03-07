@@ -1,0 +1,6 @@
+   Solution of cubic and quartic equations (poly34)
+=====================================================
+
+(c) Khashin S.I. 
+For further details see: http://math.ivanovo.ac.ru/dalgebra/Khashin/index.html
+email: khash2@gmail.com
