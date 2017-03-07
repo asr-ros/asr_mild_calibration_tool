@@ -26,8 +26,6 @@ find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtOpenGL QtSvg QtXml)
 find_package(cmake_modules REQUIRED)
 find_package(Eigen REQUIRED)
 find_package(Boost REQUIRED)
-find_package(PCL REQUIRED)
-find_package(OpenCV REQUIRED )
 
 #QWT Stuff
 find_path ( QWT_INCLUDE_DIR NAMES qwt_plot.h HINTS ${QT_INCLUDE_DIR} PATH_SUFFIXES qwt qwt-qt4)
@@ -48,7 +46,6 @@ include_directories(include
     ${Eigen_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIRS}
     ${QWT_INCLUDE_DIR}
-    ${PCL_INCLUDE_DIRS}
     )
 
 file(GLOB QT_FORMS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.ui)
@@ -116,9 +113,7 @@ target_link_libraries(calibrationTool_core
     ${QT_LIBRARIES}
     ${ROS_LIBRARIES}
     ${Boost_LIBRARIES}
-    ${PCL_LIBRARIES}
     ${QWT_LIBRARY}
-    ${OpenCV_LIBS}
     PTUControllerCPP
     asr_sick_lms_400
  )
@@ -136,9 +131,7 @@ target_link_libraries(calibrationTool_tests
     ${QT_LIBRARIES}
     ${ROS_LIBRARIES}
     ${Boost_LIBRARIES}
-    ${PCL_LIBRARIES}
     ${QWT_LIBRARY}
-    ${OpenCV_LIBS}
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
@@ -159,8 +152,6 @@ target_link_libraries(calibrationTool
     ${ROS_LIBRARIES}
     ${Boost_LIBRARIES}
     ${QWT_LIBRARY}
-    ${PCL_LIBRARIES}
-    ${OpenCV_LIBS}
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
@@ -180,8 +171,6 @@ target_link_libraries(frame_editor
     ${ROS_LIBRARIES}
     ${Boost_LIBRARIES}
     ${QWT_LIBRARY}
-    ${PCL_LIBRARIES}
-    ${OpenCV_LIBS}
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
