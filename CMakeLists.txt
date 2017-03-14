@@ -22,16 +22,13 @@ find_package(catkin REQUIRED COMPONENTS
   asr_aruco_marker_recognition
 )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
+
 find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtOpenGL QtSvg QtXml)
 find_package(cmake_modules REQUIRED)
 find_package(Eigen REQUIRED)
 find_package(Boost REQUIRED)
-
-#QWT Stuff
-find_path ( QWT_INCLUDE_DIR NAMES qwt_plot.h HINTS ${QT_INCLUDE_DIR} PATH_SUFFIXES qwt qwt-qt4)
-set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR} )
-find_library ( QWT_LIBRARY NAMES qwt qwt-qt4)
-set ( QWT_LIBRARIES ${QWT_LIBRARY} )
+find_package(QWT REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include)
@@ -50,7 +47,6 @@ include_directories(include
 
 file(GLOB QT_FORMS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.ui)
 file(GLOB QT_RESOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} resources/*.qrc)
-#file(GLOB_RECURSE QT_MOC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS *.h)
 
 SET (MOC_HEADERS
         include/Laserscanner/abstract_laserscanner.h
@@ -135,7 +131,6 @@ target_link_libraries(calibrationTool_tests
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
-    #${CMAKE_CURRENT_LIST_DIR}/../QWT/lib/libqwt.so
     #${CMAKE_CURRENT_LIST_DIR}/../QWT_Polar/lib/libqwtpolar.so
  )
 endif ()
@@ -155,7 +150,6 @@ target_link_libraries(calibrationTool
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
-    #${CMAKE_CURRENT_LIST_DIR}/../QWT/lib/libqwt.so
     #${CMAKE_CURRENT_LIST_DIR}/../QWT_Polar/lib/libqwtpolar.so
  )
  
@@ -174,7 +168,6 @@ target_link_libraries(frame_editor
     PTUControllerCPP
     asr_sick_lms_400
     calibrationTool_core
-    #${CMAKE_CURRENT_LIST_DIR}/../QWT/lib/libqwt.so
     #${CMAKE_CURRENT_LIST_DIR}/../QWT_Polar/lib/libqwtpolar.so
  )
 
