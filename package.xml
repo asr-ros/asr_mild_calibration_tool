@@ -26,6 +26,7 @@
   <run_depend>asr_sick_lms_400</run_depend>
   <run_depend>cmake_modules</run_depend>
   <run_depend>asr_aruco_marker_recognition</run_depend>
+  <run_depend>asr_resources_for_vision</run_depend>
   
 
   <export>
