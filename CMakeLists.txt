@@ -26,7 +26,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
 
 find_package(Qt4 REQUIRED COMPONENTS QtCore QtGui QtOpenGL QtSvg QtXml)
 find_package(cmake_modules REQUIRED)
-find_package(Eigen REQUIRED)
+find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED)
 find_package(QWT REQUIRED)
 
@@ -40,7 +40,7 @@ ${QT_USE_FILE}
 include_directories(include 
     ${catkin_INCLUDE_DIRS} 
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Eigen_INCLUDE_DIRS}
+    ${Eigen3_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIRS}
     ${QWT_INCLUDE_DIR}
     )
