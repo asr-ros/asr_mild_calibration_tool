@@ -23,6 +23,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #endif
 #include "transformation_data.h"
 
+#include <vector>
 using namespace std;
 
 typedef std::tuple<double, double, Eigen::Matrix4d, Eigen::Matrix4d> PanTiltOffsetTuple;
